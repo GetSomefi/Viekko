@@ -14,6 +14,7 @@ public class MaaliScript : MonoBehaviour
 
     public TextMeshPro CheerText;
 
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -29,7 +30,9 @@ public class MaaliScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "pelivaline") {
+        if (collision.gameObject.tag == "pelivaline" && !ScoreBoard.scored) {
+            ScoreBoard.scored = true;
+
             Debug.Log("He scores! " + playerNumber);
             CheerText.SetText("Player " + playerNumber + " scores!");
 

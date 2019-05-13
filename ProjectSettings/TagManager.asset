@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - pelivaline
+  - vasen
+  - oikea
   layers:
   - Default
   - TransparentFX

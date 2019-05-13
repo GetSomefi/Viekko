@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - Reset
     - ScoreBoard
     - TheGameManager
+    - settingsFromCanvas
     - touch
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
@@ -13,6 +14,8 @@ ScriptsOnlyBuild:
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshPro
     - TMPro.TextMeshProUGUI
+    UnityEditor.TestRunner.dll:
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -20,7 +23,10 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Text
+    - UnityEngine.UI.Toggle
     com.unity.multiplayer-hlapi.Runtime.dll:
+    - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
   sceneClasses:
     Assets/perusSetti.unity:
@@ -91,6 +97,10 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9480}
     - Class: 114
+      Script: {instanceID: 9482}
+    - Class: 114
+      Script: {instanceID: 9484}
+    - Class: 114
       Script: {instanceID: 9708}
     - Class: 114
       Script: {instanceID: 9868}
@@ -114,6 +124,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 10736}
     - Class: 114
       Script: {instanceID: 10820}
+    - Class: 114
+      Script: {instanceID: 27768}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -207,7 +219,7 @@ ScriptsOnlyBuild:
     className: NetworkIdentity
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 4078bd4095e8c8f901f371e485eebac9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: touch
@@ -831,7 +843,7 @@ ScriptsOnlyBuild:
     className: NetworkBehaviour
   - hash:
       serializedVersion: 2
-      Hash: 544cb54c3a2d73c34ae509a5ca9074ac
+      Hash: e3dd3f4dec86368dfa2f652ebffa65c3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ScoreBoard
@@ -919,6 +931,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 88323ca67f2894af0fc6f28bf93ce91b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: settingsFromCanvas
   platform: 13
   scenePathNames:
   - Assets/perusSetti.unity

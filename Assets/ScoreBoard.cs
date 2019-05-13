@@ -10,10 +10,12 @@ public class ScoreBoard : MonoBehaviour
     public TextMeshPro scores;
     public GameObject TheGameManager;
 
+    public bool scored;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        scored = false;
     }
 
     // Update is called once per frame
@@ -27,5 +29,6 @@ public class ScoreBoard : MonoBehaviour
     public void ResetSceneAfterGoal() {
         Debug.Log("Reset scene after goal");
         TheGameManager.GetComponent<TheGameManager>().StartPositions();
+        scored = false;
     }
 }
