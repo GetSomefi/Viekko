@@ -12,9 +12,6 @@ public class touch : MonoBehaviour
     //drag UseMouseToggle here
     public GameObject inheritSettings;
     private bool useMouse = false;
-    private bool movingLeft = false, movingRight = false;
-    private GameObject objectLeft, objectRight;
-
 
     private Vector3 screenPoint;
     private Vector3 offset;
@@ -27,7 +24,6 @@ public class touch : MonoBehaviour
 
     void Update()
     {
-
         useMouse = inheritSettings.GetComponent<settingsFromCanvas>().useMouse;
         bool touchDown = false;
         for (int i = 0; i < Input.touchCount; ++i)
@@ -43,10 +39,8 @@ public class touch : MonoBehaviour
 
             if (Input.GetTouch(i).phase == TouchPhase.Ended)
             {
-                //movingLeft = false;
-                //movingRight = false;
                 touchDown = false;
-                gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0, 0);
+
             }
 
             if (Input.GetTouch(i).phase == TouchPhase.Moved) {
@@ -58,73 +52,24 @@ public class touch : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (!movingLeft)
+                    //transform.position = hit.point;
+
+                    if(hit.transform.tag == "vasen")
                     {
-                        if (hit.transform.tag == "vasen")
-                        {
-                            movingLeft = true;
-                            objectLeft = hit.transform.gameObject;
-                            //objectLeft.transform.position = new Vector3(hit.point.x, hit.transform.position.y, hit.point.z);
-                            //objectLeft.GetComponent<Renderer>().material.color = new Color(255, 0, 0);
-                        }
+                        hit.transform.position = new Vector3(hit.point.x, hit.transform.position.y, hit.point.z);
+                        hit.transform.GetComponent<Renderer>().material.color = new Color(0, 255, 0, 0.1f);
                     }
-                    if (movingLeft)
+                    if(hit.transform.tag == "oikea")
                     {
-                        objectLeft.transform.position = new Vector3(hit.point.x, hit.transform.position.y, hit.point.z);
-                        objectLeft.GetComponent<Renderer>().material.color = new Color(255, 0, 0);
-                    }
-
-
-                    if (!movingRight)
-                    {
-                        if (hit.transform.tag == "oikea")
-                        {
-                            movingRight = true;
-                            objectRight = hit.transform.gameObject;
-                            //objectRight.transform.position = new Vector3(hit.point.x, hit.transform.position.y, hit.point.z);
-                            //objectLeft.GetComponent<Renderer>().material.color = new Color(0, 255, 0);
-                        }
-                    }
-                    if (movingRight)
-                    {
-                        objectRight.transform.position = new Vector3(hit.point.x, hit.transform.position.y, hit.point.z);
-                        objectRight.GetComponent<Renderer>().material.color = new Color(0, 255, 0);
-                    }
-
-                    //hit.transform.position = new Vector3(hit.point.x, hit.transform.position.y, hit.point.z);
-
-                }
-
-                /*if (movingLeft)
-                {
-                    if (Physics.Raycast(ray, out hit))
-                    {
-                        objectLeft.transform.position = new Vector3(hit.point.x, hit.transform.position.y, hit.point.z);
-
+                        hit.transform.position = new Vector3(hit.point.x, hit.transform.position.y, hit.point.z);
+                        hit.transform.GetComponent<Renderer>().material.color = new Color(255, 0, 0, 0.1f);
                     }
                 }
-                if (movingRight)
-                {
-                    if (Physics.Raycast(ray, out hit))
-                    {
-                        objectRight.transform.position = new Vector3(hit.point.x, hit.transform.position.y, hit.point.z);
-
-                    }
-                }*/
-
-
-                //Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
-                //transform.position = curPosition;
             }
-        }
-
-        if(objectLeft.GetComponent<Rigidbody>().velocity.x < 0.2f && objectLeft.GetComponent<Rigidbody>().velocity.y < 0.2f && objectLeft.GetComponent<Rigidbody>().velocity.z < 0.2f)
-        {
-            movingLeft = false;
-        }
-        if (objectRight.GetComponent<Rigidbody>().velocity.x < 0.2f && objectRight.GetComponent<Rigidbody>().velocity.y < 0.2f && objectRight.GetComponent<Rigidbody>().velocity.z < 0.2f)
-        {
-            movingRight = false;
+            else
+            {
+                gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0, 0);
+            }
         }
 
     }

@@ -22,8 +22,11 @@ public class TheGameManager : MonoBehaviour
     }
 
     public void StartPositions() {
-        p1.transform.position = new Vector3(-8, 2, 0);
-        p2.transform.position = new Vector3(8, 2, 0);
+        //p1.transform.position = new Vector3(-8, 2, 0);
+        p1.transform.parent.position = new Vector3(-8, 2, 0);
+
+        //p2.transform.position = new Vector3(8, 2, 0);
+        p2.transform.parent.position = new Vector3(8, 2, 0);
 
         ball.transform.position = new Vector3(0, 4.90f, 0);
         ball.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
